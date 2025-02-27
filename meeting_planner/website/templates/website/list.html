@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title>Meetings List</title>
+
+{% endblock title %}
+
+{% block content %}
+
+<h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Employees Information</h1>
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">Tittle</th>
+<th scope="col">Date</th>
+<th scope="col">StarTime</th>
+<th scope="col">Duration</th>
+</tr>
+</thead>
+<tbody>
+{% for meeting in meetings %}
+<tr>
+<th scope="row">{{ meeting.tittle }}</th>
+
+<td>{{ meeting.date }}</td>
+
+<td>{{ meeting.start_time}}</td>
+
+<td>{{ emp.duration }}</td>
+<td>
+
+</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<div class="text-center">
+
+
+</div>
+
+{% endblock content %}
