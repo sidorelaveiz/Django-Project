@@ -2,47 +2,39 @@
 
 {% block title %}
 
-<title>Meetings List</title>
-
+Meetings List
 {% endblock title %}
 
 {% block content %}
 
-<h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Employees Information</h1>
-
+<h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Meetings Information</h1>
 <table class="table table-striped">
-<thead>
-<tr>
-<th scope="col">Tittle</th>
-<th scope="col">Date</th>
-<th scope="col">StarTime</th>
-<th scope="col">Duration</th>
-</tr>
-</thead>
-<tbody>
-{% for meeting in meetings %}
-<tr>
-<th scope="row">{{ meeting.tittle }}</th>
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Date</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">Duration</th>
 
-<td>{{ meeting.date }}</td>
+        <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for meeting in meetings %}
+    <tr>
+        <td>{{ meeting.tittle }}</td>
+        <td>{{ meeting.date }}</td>
+        <td>{{ meeting.start_time }}</td>
+        <td>{{ meeting.duration }}</td>
+        <td>
+            <a href="{% url 'detail' meeting.id %}">View Details</a></td>
 
-<td>{{ meeting.start_time}}</td>
+        <td>
+            <a href="{% url 'edit' meeting.id %}" class="btn btn-warning btn-sm">Edit</a></td>
 
-<td>{{ meeting.duration }}</td>
-<td>
-
-</td>
-</tr>
-
-{% endfor %}
-
-</tbody>
-
+    </tr>
+    {% endfor %}
+    </tbody>
 </table>
-
-<div class="text-center">
-
-
-</div>
 
 {% endblock content %}
